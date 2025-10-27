@@ -1,0 +1,28 @@
+@use './components/variables';
+@use './components/utils';
+@use './components/header';
+@use './components/buttons';
+@use './components/produtos';
+@use './components/sobre';
+@use './components/contato';
+@use './components/footer';
+@use './hero';
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Roboto', sans-serif;
+  color: variables.$textColor;
+  list-style: none;
+}
+
+body {
+  background: variables.$bgGradient;   /* <-- gradiente no site todo */
+  line-height: 1.6;
+}
+
+/* utilitário global */
+.container {
+  @include utils.container;
+}

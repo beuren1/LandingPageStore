@@ -1,0 +1,47 @@
+@use './components/variables' as v;
+
+/* ======= RESPONSIVO ======= */
+
+/* Tablets */
+@media (max-width: 1024px) {
+  .hero h2 {
+    font-size: 1.8rem;
+  }
+
+  .grid-produtos {
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  }
+
+  .header .menu a {
+    font-size: 0.9rem;
+  }
+}
+
+/* Celulares */
+@media (max-width: 640px) {
+  .hero {
+    min-height: 65vh;
+
+    .hero-content {
+      padding: 20px;
+      h2 {
+        font-size: 1.5rem;
+      }
+      p {
+        font-size: 0.9rem;
+      }
+    }
+  }
+
+  .grid-produtos {
+    grid-template-columns: 1fr;
+  }
+
+  .sobre .wrapper {
+    padding: 0 15px;
+  }
+
+  form {
+    width: 90%;
+  }
+}

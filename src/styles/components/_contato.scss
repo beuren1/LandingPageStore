@@ -1,0 +1,36 @@
+@use './variables' as v;
+@use './utils' as u;
+
+.contato {
+  background: transparent;
+  padding: v.$sectionY 0;
+  text-align: center;
+  
+  form {
+    @include u.container;
+    max-width: 420px;
+    display: flex;
+    flex-direction: column;
+    gap: 14px;
+
+    input, textarea {
+      border: 1px solid #ddd;
+      border-radius: v.$radius;
+      padding: 12px;
+      font-size: 1rem;
+      background: #fff;
+    }
+
+    button {
+      background: v.$primary;
+      color: v.$lightText;
+      border: none;
+      padding: 12px;
+      border-radius: v.$radius;
+      cursor: pointer;
+      transition: .25s ease;
+
+      &:hover { background: v.$primaryHover; }
+    }
+  }
+}

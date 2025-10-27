@@ -1,0 +1,71 @@
+@use './variables' as v;
+@use './utils' as u;
+
+.sobre {
+  padding: v.$sectionY 0;
+  background: linear-gradient(180deg, #7a3e2c 0%, #c48a3a 50%, #d2a562 100%);
+  color: v.$lightText;
+
+  .sobre-container {
+    @include u.container;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 40px;
+    flex-wrap: wrap;
+  }
+
+  .sobre-img {
+    flex: 1 1 300px;
+    img {
+      width: 100%;
+      max-width: 400px;
+      border-radius: v.$radius;
+      box-shadow: 0 6px 18px rgba(0, 0, 0, 0.3);
+    }
+  }
+
+  .sobre-texto {
+    flex: 1 1 400px;
+    color: #fff;
+
+   h2 {
+  text-align: center;
+  font-size: 2rem;
+  margin-bottom: 25px;
+  color: #fff;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+
+    p {
+      margin-bottom: 15px;
+      line-height: 1.7;
+      font-size: 1.05rem;
+      color: #f5f5f5;
+    }
+
+    strong {
+      color: #fff;
+    }
+  }
+
+  /* ==== Responsivo ==== */
+  @media (max-width: 768px) {
+    .sobre-container {
+      flex-direction: column;
+      text-align: center;
+    }
+
+    .sobre-texto {
+      h2 {
+        margin-top: 25px;
+      }
+    }
+
+    .sobre-img img {
+      max-width: 90%;
+    }
+  }
+}

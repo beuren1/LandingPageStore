@@ -1,0 +1,125 @@
+@use './variables' as v;
+@use './utils' as u;
+
+.produtos {
+  background: transparent;
+  padding: v.$sectionY 0;
+  text-align: center;
+
+  h2 {
+    font-size: 2rem;
+    font-weight: 700;
+    margin-bottom: 32px;
+    color: #fff;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+  }
+
+  .categoria {
+    margin: 60px 0;
+
+    h3 {
+      text-align: center;
+      font-size: 1.6rem;
+      margin-bottom: 20px;
+      color: #fff;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+    }
+
+    /* === LINHA BRILHANTE === */
+    &::after {
+      content: '';
+      display: block;
+      width: 150px;
+      height: 3px;
+      margin: 25px auto 0;
+      background: linear-gradient(90deg, #ffb347, #ffd700, #ffb347);
+      border-radius: 6px;
+      box-shadow: 0 0 15px rgba(255, 215, 0, 0.8);
+      animation: brilho 2.5s linear infinite;
+    }
+
+    @keyframes brilho {
+      0% {
+        opacity: 0.6;
+        box-shadow: 0 0 10px rgba(255, 215, 0, 0.5);
+      }
+      50% {
+        opacity: 1;
+        box-shadow: 0 0 20px rgba(255, 215, 0, 1);
+      }
+      100% {
+        opacity: 0.6;
+        box-shadow: 0 0 10px rgba(255, 215, 0, 0.5);
+      }
+    }
+
+    .grid-produtos {
+      @include u.container;
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 28px;
+      justify-items: center;
+
+      .produto {
+        background: rgba(255, 255, 255, 0.08);
+        border-radius: 12px;
+        padding: 18px;
+        width: 100%;
+        max-width: 240px;
+        box-shadow: 0 6px 14px rgba(0, 0, 0, 0.3);
+        transition: transform 0.25s ease, background 0.25s ease;
+
+        &:hover {
+          transform: translateY(-6px);
+          background: rgba(255, 255, 255, 0.15);
+        }
+
+        img {
+          width: 100%;
+          aspect-ratio: 1 / 1;
+          object-fit: cover;
+          border-radius: 10px;
+          margin-bottom: 10px;
+          display: block;
+        }
+
+        h4 {
+          color: #fff;
+          font-size: 1rem;
+          font-weight: 600;
+          margin-bottom: 5px;
+        }
+
+        p {
+          color: #ffb347;
+          font-weight: 700;
+          font-size: 0.95rem;
+        }
+      }
+    }
+  }
+
+  /* ===== RESPONSIVO ===== */
+  @media (max-width: 1024px) {
+    h2 {
+      font-size: 1.8rem;
+    }
+
+    .grid-produtos {
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    }
+  }
+
+  @media (max-width: 640px) {
+    .grid-produtos {
+      grid-template-columns: 1fr;
+      gap: 24px;
+    }
+
+    .produto {
+      max-width: 90%;
+    }
+  }
+}

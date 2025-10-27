@@ -1,0 +1,9 @@
+@use './variables' as v;
+
+.footer {
+  background: #111;
+  color: v.$lightText;
+  text-align: center;
+  padding: 20px 0;
+  font-size: .95rem;
+}

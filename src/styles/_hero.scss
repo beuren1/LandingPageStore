@@ -1,0 +1,44 @@
+@use './components/variables' as v;
+
+.hero {
+  background: url("https://images.unsplash.com/photo-1521335629791-ce4aec67dd47")
+            center/cover no-repeat;
+  color: v.$lightText;
+  min-height: 78vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  position: relative;
+
+  &:before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(180deg, rgba(0,0,0,.35), rgba(0,0,0,.55));
+  }
+
+  .hero-content {
+    position: relative;
+    z-index: 1;
+    background: rgba(0,0,0,.45);
+    padding: 36px 28px;
+    border-radius: v.$radius;
+
+    h2 { font-size: 2.2rem; margin-bottom: 8px; }
+    p  { opacity: .95; }
+
+    #btn-comprar {
+      margin-top: 16px;
+      background: v.$primary;
+      color: v.$lightText;
+      border: none;
+      padding: 10px 22px;
+      border-radius: v.$radius;
+      cursor: pointer;
+      transition: .25s ease;
+
+      &:hover { background: v.$primaryHover; transform: translateY(-1px); }
+    }
+  }
+}
