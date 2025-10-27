@@ -5,201 +5,385 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Beuren Store - Moda Urbana</title>
 
-    <!-- Fonte -->
+    <!-- Roboto (texto) -->
     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap" rel="stylesheet" />
+    <!-- Caprasimo (títulos) -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Caprasimo&display=swap" rel="stylesheet" />
+<link
+  rel="stylesheet"
+  href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"/>
 
     <!-- SCSS principal (Parcel compila) -->
     <link rel="stylesheet" href="./styles/main.scss" />
   </head>
+
   <body>
-    <!-- HEADER -->
-    <header class="header">
-      <div class="container">
-        <h1 class="logo">Beuren Store</h1>
-        <nav aria-label="menu principal">
-          <ul class="menu">
-            <li><a href="#home">Início</a></li>
-            <li><a href="#produtos">Produtos</a></li>
-            <li><a href="#sobre">Sobre</a></li>
-            <li><a href="#contato">Contato</a></li>
+    <!-- ==================== HEADER ==================== -->
+<header class="site-header" id="topo">
+  <div class="header__wrap">
+    <a href="#inicio" class="header__logo" aria-label="Beuren Shop">
+      <img src="./images/logo.png" alt="Beuren Shop" />
+    </a>
+
+    <nav class="header__nav" id="nav" aria-label="Menu principal">
+      <ul class="nav__list">
+        <li class="nav__item"><a class="nav__link" href="#inicio">Início</a></li>
+
+        <li class="nav__item nav__item--has-sub">
+          <a class="nav__link" href="#produtos">Produtos</a>
+          <ul class="nav__sub">
+            <li><a class="nav__sublink" href="#calcas">Calças</a></li>
+            <li><a class="nav__sublink" href="#jaquetas">Jaquetas</a></li>
+            <li><a class="nav__sublink" href="#tenis">Tênis</a></li>
           </ul>
-        </nav>
-      </div>
-    </header>
+        </li>
 
-    <!-- HERO -->
-    <section id="home" class="hero" aria-label="destaque">
+        <li class="nav__item"><a class="nav__link" href="#ofertas">Ofertas</a></li>
+        <li class="nav__item"><a class="nav__link" href="#sobre">Sobre</a></li>
+        <li class="nav__item"><a class="nav__link" href="#faq">FAQ</a></li>
+        <li class="nav__item"><a class="nav__link nav__link--cta" href="#contato">Contato</a></li>
+      </ul>
+    </nav>
+
+    <button class="burger" id="burger" aria-label="Abrir menu" aria-controls="nav" aria-expanded="false">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+</header>
+
+
+
+    <!-- ==================== HERO ==================== -->
+    <section id="inicio" class="hero">
+      <div class="hero-slides">
+        <div class="slide is-active" style="background-image: url('./images/jaqueta.avif')"></div>
+        <div class="slide" style="background-image: url('./images/tenis.avif')"></div>
+        <div class="slide" style="background-image: url('./images/calca.avif')"></div>
+      </div>
+
       <div class="hero-content">
-        <h2>Nova coleção de inverno 2025</h2>
+        <h2 class="tag-title">Nova coleção de inverno 2025</h2>
         <p>Estilo, conforto e qualidade — tudo em um só lugar.</p>
-        <button id="btn-comprar" class="btn-primary" type="button">Compre agora</button>
+        <button id="btn-comprar" class="btn-primary">COMPRE AGORA</button>
+      </div>
+
+      <div class="hero-controls">
+        <button class="arrow prev" aria-label="Slide anterior">❮</button>
+        <div class="dots" aria-hidden="true"></div>
+        <button class="arrow next" aria-label="Próximo slide">❯</button>
       </div>
     </section>
-
-    <!-- PRODUTOS -->
-    <section id="produtos" class="produtos" aria-label="produtos">
-      <h2>Nossos Produtos</h2>
-
-      <!-- CALÇAS -->
-      <div class="categoria">
-        <h3>Calças</h3>
-        <div class="grid-produtos">
-          <div class="produto">
-            <img loading="lazy" src="./images/calca.avif" alt="Calça Jeans Slim" />
-            <h4>Calça Jeans Slim</h4><p>R$ 149,90</p>
-          </div>
-          <div class="produto">
-            <img loading="lazy" src="./images/calca.avif" alt="Calça Cargo" />
-            <h4>Calça Cargo</h4><p>R$ 189,90</p>
-          </div>
-          <div class="produto">
-            <img loading="lazy" src="./images/calca.avif" alt="Calça Jogger" />
-            <h4>Calça Jogger</h4><p>R$ 159,90</p>
-          </div>
-          <div class="produto">
-            <img loading="lazy" src="./images/calca.avif" alt="Calça Skinny" />
-            <h4>Calça Skinny</h4><p>R$ 179,90</p>
-          </div>
-          <div class="produto">
-            <img loading="lazy" src="./images/calca.avif" alt="Calça Social" />
-            <h4>Calça Social</h4><p>R$ 199,90</p>
-          </div>
-          <div class="produto">
-            <img loading="lazy" src="./images/calca.avif" alt="Calça de Moletom" />
-            <h4>Calça de Moletom</h4><p>R$ 129,90</p>
-          </div>
-          <div class="produto">
-            <img loading="lazy" src="./images/calca.avif" alt="Calça Wide Leg" />
-            <h4>Calça Wide Leg</h4><p>R$ 169,90</p>
-          </div>
-          <div class="produto">
-            <img loading="lazy" src="./images/calca.avif" alt="Calça Chino" />
-            <h4>Calça Chino</h4><p>R$ 189,90</p>
-          </div>
-        </div>
-      </div>
-
-      <!-- JAQUETAS -->
-      <div class="categoria">
-        <h3>Jaquetas</h3>
-        <div class="grid-produtos">
-          <div class="produto">
-            <img loading="lazy" src="./images/jaqueta.avif" alt="Jaqueta Jeans" />
-            <h4>Jaqueta Jeans</h4><p>R$ 249,90</p>
-          </div>
-          <div class="produto">
-            <img loading="lazy" src="./images/jaqueta.avif" alt="Jaqueta de Couro" />
-            <h4>Jaqueta de Couro</h4><p>R$ 299,90</p>
-          </div>
-          <div class="produto">
-            <img loading="lazy" src="./images/jaqueta.avif" alt="Jaqueta Corta Vento" />
-            <h4>Jaqueta Corta Vento</h4><p>R$ 229,90</p>
-          </div>
-          <div class="produto">
-            <img loading="lazy" src="./images/jaqueta.avif" alt="Jaqueta Puffer" />
-            <h4>Jaqueta Puffer</h4><p>R$ 279,90</p>
-          </div>
-          <div class="produto">
-            <img loading="lazy" src="./images/jaqueta.avif" alt="Jaqueta Esportiva" />
-            <h4>Jaqueta Esportiva</h4><p>R$ 199,90</p>
-          </div>
-          <div class="produto">
-            <img loading="lazy" src="./images/jaqueta.avif" alt="Jaqueta Parka" />
-            <h4>Jaqueta Parka</h4><p>R$ 289,90</p>
-          </div>
-          <div class="produto">
-            <img loading="lazy" src="./images/jaqueta.avif" alt="Jaqueta Bomber" />
-            <h4>Jaqueta Bomber</h4><p>R$ 219,90</p>
-          </div>
-          <div class="produto">
-            <img loading="lazy" src="./images/jaqueta.avif" alt="Jaqueta Trucker" />
-            <h4>Jaqueta Trucker</h4><p>R$ 239,90</p>
-          </div>
-        </div>
-      </div>
-
-      <!-- TÊNIS -->
-      <div class="categoria">
-        <h3>Tênis</h3>
-        <div class="grid-produtos">
-          <div class="produto">
-            <img loading="lazy" src="./images/tenis.avif" alt="Tênis Branco" />
-            <h4>Tênis Branco</h4><p>R$ 249,90</p>
-          </div>
-          <div class="produto">
-            <img loading="lazy" src="./images/tenis.avif" alt="Tênis Running" />
-            <h4>Tênis Running</h4><p>R$ 299,90</p>
-          </div>
-          <div class="produto">
-            <img loading="lazy" src="./images/tenis.avif" alt="Tênis Street" />
-            <h4>Tênis Street</h4><p>R$ 279,90</p>
-          </div>
-          <div class="produto">
-            <img loading="lazy" src="./images/tenis.avif" alt="Tênis Casual" />
-            <h4>Tênis Casual</h4><p>R$ 239,90</p>
-          </div>
-          <div class="produto">
-            <img loading="lazy" src="./images/tenis.avif" alt="Tênis Preto" />
-            <h4>Tênis Preto</h4><p>R$ 269,90</p>
-          </div>
-          <div class="produto">
-            <img loading="lazy" src="./images/tenis.avif" alt="Tênis Retrô" />
-            <h4>Tênis Retrô</h4><p>R$ 259,90</p>
-          </div>
-          <div class="produto">
-            <img loading="lazy" src="./images/tenis.avif" alt="Tênis Skate" />
-            <h4>Tênis Skate</h4><p>R$ 269,90</p>
-          </div>
-          <div class="produto">
-            <img loading="lazy" src="./images/tenis.avif" alt="Tênis Moderno" />
-            <h4>Tênis Moderno</h4><p>R$ 289,90</p>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- SOBRE -->
     <section id="sobre" class="sobre" aria-label="sobre nós">
-      <div class="container sobre-container">
-        <div class="sobre-img">
-          <img
-            loading="lazy"
-            src="https://images.unsplash.com/photo-1529626455594-4ff0802cfb7e?auto=format&fit=crop&w=800&q=60"
-            alt="Equipe Beuren Store"
-          />
-        </div>
-        <div class="sobre-texto">
-          <h2>Sobre nós</h2>
-          <p>
-            A <strong>Beuren Store</strong> nasceu da paixão pela moda urbana. Nosso
-            objetivo é oferecer roupas que unem conforto, autenticidade e estilo.
-            Trabalhamos com materiais de alta qualidade, inspirados no espírito das ruas e na expressão pessoal.
-          </p>
-          <p>
-            Além de vender roupas, queremos inspirar confiança e atitude em cada peça.
-            Seja você mesmo. Vista o que te representa.
-          </p>
-        </div>
+  <div class="container sobre-container">
+    <div class="sobre-img">
+      <img src="./images/backend.png" alt="Equipe Beuren Shop" />
+    </div>
+
+    <div class="sobre-texto">
+      <h2>Sobre nós</h2>
+      <p>
+        A <strong>Beuren Shop</strong> nasceu da paixão pela moda urbana.
+        Nosso objetivo é unir estilo, conforto e autenticidade em cada
+        coleção.
+      </p>
+      <p>
+        Trabalhamos com materiais de alta qualidade e design moderno, para
+        que você se vista com confiança e atitude.
+      </p>
+    </div>
+  </div>
+</section>
+
+    <!-- ==================== PRODUTOS ==================== -->
+   <!-- ==================== PRODUTOS ==================== -->
+<!-- ==================== PRODUTOS ==================== -->
+<section id="produtos" class="produtos" aria-label="produtos" style="text-align:center;">
+  <h2 class="tag-title">Nossos Produtos</h2>
+
+  <!-- ========== CALÇAS ========== -->
+  <div id="calcas" class="categoria">
+    <h3 class="section-title">Calças</h3>
+    <p>Modelagens confortáveis com caimento perfeito.</p>
+
+    <div class="grid-produtos grid-4">
+      <div class="produto">
+        <img loading="lazy" src="./images/calca.avif" alt="Calça Jeans Slim" />
+        <h4>Calça Jeans Slim</h4><p>R$ 149,90</p>
       </div>
-    </section>
+      <div class="produto">
+        <img loading="lazy" src="./images/calca.avif" alt="Calça Cargo" />
+        <h4>Calça Cargo</h4><p>R$ 189,90</p>
+      </div>
+      <div class="produto">
+        <img loading="lazy" src="./images/calca.avif" alt="Calça Jogger" />
+        <h4>Calça Jogger</h4><p>R$ 159,90</p>
+      </div>
+      <div class="produto">
+        <img loading="lazy" src="./images/calca.avif" alt="Calça Skinny" />
+        <h4>Calça Skinny</h4><p>R$ 179,90</p>
+      </div>
+    </div>
+  </div>
 
-    <!-- CONTATO -->
+  <!-- ========== JAQUETAS ========== -->
+  <div id="jaquetas" class="categoria">
+    <h3 class="section-title">Jaquetas</h3>
+    <p>Proteção e estilo em qualquer clima.</p>
+
+    <div class="grid-produtos grid-4">
+      <div class="produto">
+        <img loading="lazy" src="./images/jaqueta.avif" alt="Jaqueta Jeans" />
+        <h4>Jaqueta Jeans</h4><p>R$ 249,90</p>
+      </div>
+      <div class="produto">
+        <img loading="lazy" src="./images/jaqueta.avif" alt="Jaqueta de Couro" />
+        <h4>Jaqueta de Couro</h4><p>R$ 299,90</p>
+      </div>
+      <div class="produto">
+        <img loading="lazy" src="./images/jaqueta.avif" alt="Jaqueta Corta Vento" />
+        <h4>Jaqueta Corta Vento</h4><p>R$ 229,90</p>
+      </div>
+      <div class="produto">
+        <img loading="lazy" src="./images/jaqueta.avif" alt="Jaqueta Puffer" />
+        <h4>Jaqueta Puffer</h4><p>R$ 279,90</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- ========== TÊNIS ========== -->
+  <div id="tenis" class="categoria">
+    <h3 class="section-title">Tênis</h3>
+    <p>Conforto que acompanha seu ritmo.</p>
+
+    <div class="grid-produtos grid-4">
+      <div class="produto">
+        <img loading="lazy" src="./images/tenis.avif" alt="Tênis Branco" />
+        <h4>Tênis Branco</h4><p>R$ 249,90</p>
+      </div>
+      <div class="produto">
+        <img loading="lazy" src="./images/tenis.avif" alt="Tênis Running" />
+        <h4>Tênis Running</h4><p>R$ 299,90</p>
+      </div>
+      <div class="produto">
+        <img loading="lazy" src="./images/tenis.avif" alt="Tênis Street" />
+        <h4>Tênis Street</h4><p>R$ 279,90</p>
+      </div>
+      <div class="produto">
+        <img loading="lazy" src="./images/tenis.avif" alt="Tênis Casual" />
+        <h4>Tênis Casual</h4><p>R$ 239,90</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ==================== OFERTAS ESPECIAIS ==================== -->
+<!-- ==================== OFERTAS ESPECIAIS ==================== -->
+<section id="ofertas" class="ofertas-especiais" aria-label="ofertas especiais">
+  <div class="container heading">
+    <h2 class="section-title">🔥 Ofertas Especiais</h2>
+    <p class="section-sub">Seleção da semana com descontos imperdíveis!</p>
+  </div>
+
+  <div class="grid-produtos grid-4">
+    <!-- Calças -->
+    <article class="produto">
+      <span class="badge">Calças</span>
+      <img loading="lazy" src="./images/calca.avif" alt="Calça Jeans Slim" />
+      <h4>Calça Jeans Slim</h4>
+      <p class="price"><span class="old">R$ 149,90</span> <span class="new">R$ 119,90</span></p>
+    </article>
+    <article class="produto">
+      <span class="badge">Calças</span>
+      <img loading="lazy" src="./images/calca.avif" alt="Calça Cargo" />
+      <h4>Calça Cargo</h4>
+      <p class="price"><span class="old">R$ 189,90</span> <span class="new">R$ 149,90</span></p>
+    </article>
+    <article class="produto">
+      <span class="badge">Calças</span>
+      <img loading="lazy" src="./images/calca.avif" alt="Calça Jogger" />
+      <h4>Calça Jogger</h4>
+      <p class="price"><span class="old">R$ 159,90</span> <span class="new">R$ 129,90</span></p>
+    </article>
+    <article class="produto">
+      <span class="badge">Calças</span>
+      <img loading="lazy" src="./images/calca.avif" alt="Calça Skinny" />
+      <h4>Calça Skinny</h4>
+      <p class="price"><span class="old">R$ 179,90</span> <span class="new">R$ 139,90</span></p>
+    </article>
+
+    <!-- Jaquetas -->
+    <article class="produto">
+      <span class="badge">Jaquetas</span>
+      <img loading="lazy" src="./images/jaqueta.avif" alt="Jaqueta Jeans" />
+      <h4>Jaqueta Jeans</h4>
+      <p class="price"><span class="old">R$ 249,90</span> <span class="new">R$ 199,90</span></p>
+    </article>
+    <article class="produto">
+      <span class="badge">Jaquetas</span>
+      <img loading="lazy" src="./images/jaqueta.avif" alt="Jaqueta de Couro" />
+      <h4>Jaqueta de Couro</h4>
+      <p class="price"><span class="old">R$ 299,90</span> <span class="new">R$ 239,90</span></p>
+    </article>
+    <article class="produto">
+      <span class="badge">Jaquetas</span>
+      <img loading="lazy" src="./images/jaqueta.avif" alt="Jaqueta Corta Vento" />
+      <h4>Jaqueta Corta Vento</h4>
+      <p class="price"><span class="old">R$ 229,90</span> <span class="new">R$ 179,90</span></p>
+    </article>
+    <article class="produto">
+      <span class="badge">Jaquetas</span>
+      <img loading="lazy" src="./images/jaqueta.avif" alt="Jaqueta Puffer" />
+      <h4>Jaqueta Puffer</h4>
+      <p class="price"><span class="old">R$ 279,90</span> <span class="new">R$ 219,90</span></p>
+    </article>
+
+    <!-- Tênis -->
+    <article class="produto">
+      <span class="badge">Tênis</span>
+      <img loading="lazy" src="./images/tenis.avif" alt="Tênis Branco" />
+      <h4>Tênis Branco</h4>
+      <p class="price"><span class="old">R$ 249,90</span> <span class="new">R$ 199,90</span></p>
+    </article>
+    <article class="produto">
+      <span class="badge">Tênis</span>
+      <img loading="lazy" src="./images/tenis.avif" alt="Tênis Running" />
+      <h4>Tênis Running</h4>
+      <p class="price"><span class="old">R$ 299,90</span> <span class="new">R$ 239,90</span></p>
+    </article>
+    <article class="produto">
+      <span class="badge">Tênis</span>
+      <img loading="lazy" src="./images/tenis.avif" alt="Tênis Street" />
+      <h4>Tênis Street</h4>
+      <p class="price"><span class="old">R$ 279,90</span> <span class="new">R$ 219,90</span></p>
+    </article>
+    <article class="produto">
+      <span class="badge">Tênis</span>
+      <img loading="lazy" src="./images/tenis.avif" alt="Tênis Casual" />
+      <h4>Tênis Casual</h4>
+      <p class="price"><span class="old">R$ 239,90</span> <span class="new">R$ 189,90</span></p>
+    </article>
+  </div>
+</section>
+
+<!-- ==================== FAQ ==================== -->
+<section id="faq" class="faq" aria-labelledby="faq-title">
+  <div class="container">
+    <h2 id="faq-title" class="section-title">Perguntas frequentes</h2>
+    <p class="section-sub">Tudo o que você precisa saber antes de comprar.</p>
+
+    <div class="faq-list" role="list">
+      <!-- Q1 -->
+      <article class="faq-item" role="listitem">
+        <h3>
+          <button class="faq-toggle" aria-expanded="false" aria-controls="faq-p1" id="faq-b1">
+            Por que comprar na Beuren Store?
+            <span class="icon" aria-hidden="true">+</span>
+          </button>
+        </h3>
+        <div id="faq-p1" class="faq-panel" role="region" aria-labelledby="faq-b1" hidden>
+          <p>Selecionamos peças modernas com acabamento de qualidade e caimento real. Você recebe curadoria, entrega ágil e um suporte que resolve.</p>
+        </div>
+      </article>
+
+      <!-- Q2 -->
+      <article class="faq-item" role="listitem">
+        <h3>
+          <button class="faq-toggle" aria-expanded="false" aria-controls="faq-p2" id="faq-b2">
+            Garantia e segurança
+            <span class="icon" aria-hidden="true">+</span>
+          </button>
+        </h3>
+        <div id="faq-p2" class="faq-panel" role="region" aria-labelledby="faq-b2" hidden>
+          <p>Pagamentos são processados com gateways certificados e dados criptografados. Trocas e devoluções seguem o CDC, com atendimento rápido.</p>
+        </div>
+      </article>
+
+      <!-- Q3 -->
+      <article class="faq-item" role="listitem">
+        <h3>
+          <button class="faq-toggle" aria-expanded="false" aria-controls="faq-p3" id="faq-b3">
+            Melhores preços do mercado
+            <span class="icon" aria-hidden="true">+</span>
+          </button>
+        </h3>
+        <div id="faq-p3" class="faq-panel" role="region" aria-labelledby="faq-b3" hidden>
+          <p>Trabalhamos com parceiros selecionados e negociação direta para reduzir custos. Ofertas semanais garantem preço justo com qualidade.</p>
+        </div>
+      </article>
+    </div>
+  </div>
+</section>
+
+
+
+    <!-- ==================== CONTATO ==================== -->
     <section id="contato" class="contato" aria-label="contato">
-      <h2>Fale conosco</h2>
-      <form id="form-contato">
-        <input type="text" placeholder="Seu nome" required />
-        <input type="email" placeholder="Seu e-mail" required />
-        <textarea placeholder="Sua mensagem" required></textarea>
-        <button type="submit">Enviar</button>
-      </form>
-    </section>
+  <div class="contact-wrap">
+    <h2 class="contact-title">
+      <span>Fale</span> <em>Conosco</em>
+    </h2>
 
-    <!-- FOOTER (sem degradê) -->
+    <div class="contact-grid">
+      <!-- FORMULÁRIO -->
+      <form id="form-contato" class="contact-form" novalidate>
+        <label>
+          <span>Email</span>
+          <input type="email" name="email" placeholder="seuemail@exemplo.com" required />
+        </label>
+
+        <label>
+          <span>Seu telefone (opcional)</span>
+          <input type="tel" name="telefone" placeholder="(11) 99999-9999" />
+        </label>
+
+        <label class="full">
+          <span>Sua mensagem</span>
+          <textarea name="mensagem" placeholder="Como podemos te ajudar?" required></textarea>
+        </label>
+
+        <button type="submit" class="btn-primary contact-btn">Enviar</button>
+      </form>
+
+      <!-- LATERAL: REDES SOCIAIS E ENDEREÇO -->
+      <aside class="contact-side" aria-label="informações de contato">
+        <div class="side-block">
+          <h3><i class="fa-solid fa-thumbs-up"></i> Redes sociais</h3>
+          <div class="social-icons">
+            <a href="https://facebook.com" target="_blank" aria-label="Facebook" class="fb">
+              <i class="fa-brands fa-facebook"></i>
+            </a>
+            <a href="https://instagram.com" target="_blank" aria-label="Instagram" class="ig">
+              <i class="fa-brands fa-instagram"></i>
+            </a>
+            <a href="https://wa.me/5500000000000" target="_blank" aria-label="WhatsApp" class="wa">
+              <i class="fa-brands fa-whatsapp"></i>
+            </a>
+          </div>
+        </div>
+
+        <div class="side-block">
+          <h3><i class="fa-solid fa-location-arrow"></i> Endereço</h3>
+          <p class="address">
+            Rua teste exemplo número 140, Bairro Lol, São Paulo/SP
+          </p>
+        </div>
+      </aside>
+    </div>
+  </div>
+</section>
+
+
+
+    <!-- ==================== FOOTER ==================== -->
     <footer class="footer" role="contentinfo">
-      <p>© 2025 Beuren Store — Todos os direitos reservados.</p>
+      <div class="footer-inner">
+        <p>© 2025 Beuren Store — Todos os direitos reservados.</p>
+      </div>
     </footer>
 
-    <!-- JS -->
-    <script type="module" src="./scripts/main.js"></script>
+    <!-- ==================== SCRIPTS ==================== -->
+    <script src="./scripts/main.js"></script>
   </body>
 </html>

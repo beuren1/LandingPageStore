@@ -7,22 +7,32 @@
 @use './components/contato';
 @use './components/footer';
 @use './hero';
+@use './components/faq';
+
 
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
   font-family: 'Roboto', sans-serif;
-  color: variables.$textColor;
   list-style: none;
 }
 
+/* Fundo do site */
 body {
-  background: variables.$bgGradient;   /* <-- gradiente no site todo */
+  background: variables.$bgGradient; /* gradiente global que você já usa */
   line-height: 1.6;
 }
 
+/* Texto base:
+   - Títulos pretos (tags como "Nossos Produtos", "Calças", "Jaquetas", "Tênis", "Sobre nós", "Fale conosco")
+   - Parágrafos brancos
+*/
+h1, h2, h3, h4, h5, h6 { color: #000; }
+p { color: #fff; }
+
 /* utilitário global */
-.container {
-  @include utils.container;
-}
+.container { @include utils.container; }
+
+/* Ajuste para âncoras não ficarem ocultas por header fixo (se for o caso) */
+:target { scroll-margin-top: 80px; }

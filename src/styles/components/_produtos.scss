@@ -1,125 +1,204 @@
 @use './variables' as v;
 @use './utils' as u;
 
+/* ===================== PRODUTOS (seções Calças/Jaquetas/Tênis) ===================== */
 .produtos {
   background: transparent;
   padding: v.$sectionY 0;
   text-align: center;
 
-  h2 {
-    font-size: 2rem;
+  /* Título principal */
+  h2.tag-title {
+    font-family: 'Caprasimo', cursive;
+    font-size: clamp(1.8rem, 1.2rem + 2vw, 2.4rem);
     font-weight: 700;
     margin-bottom: 32px;
-    color: #fff;
+    color: #000;
+    letter-spacing: .5px;
     text-transform: uppercase;
-    letter-spacing: 1px;
   }
 
   .categoria {
     margin: 60px 0;
 
-    h3 {
+    h3.section-title {
+      font-family: 'Caprasimo', cursive;
       text-align: center;
-      font-size: 1.6rem;
-      margin-bottom: 20px;
-      color: #fff;
+      font-size: clamp(1.4rem, 1rem + 1vw, 1.8rem);
+      margin-bottom: 10px;
+      color: #000;
+      letter-spacing: .5px;
       text-transform: uppercase;
-      letter-spacing: 1px;
     }
 
-    /* === LINHA BRILHANTE === */
+    > p { color: #fff; margin-bottom: 18px; }
+
+    /* risquinho animado sob o título */
     &::after {
       content: '';
       display: block;
-      width: 150px;
-      height: 3px;
-      margin: 25px auto 0;
+      width: 320px;
+      height: 4px;
+      margin: 12px auto 0;
       background: linear-gradient(90deg, #ffb347, #ffd700, #ffb347);
       border-radius: 6px;
-      box-shadow: 0 0 15px rgba(255, 215, 0, 0.8);
+      box-shadow: 0 0 18px rgba(255, 215, 0, .9);
       animation: brilho 2.5s linear infinite;
     }
 
     @keyframes brilho {
-      0% {
-        opacity: 0.6;
-        box-shadow: 0 0 10px rgba(255, 215, 0, 0.5);
-      }
-      50% {
-        opacity: 1;
-        box-shadow: 0 0 20px rgba(255, 215, 0, 1);
-      }
-      100% {
-        opacity: 0.6;
-        box-shadow: 0 0 10px rgba(255, 215, 0, 0.5);
-      }
+      0%   { opacity: .7; box-shadow: 0 0 10px rgba(255,215,0,.5); }
+      50%  { opacity: 1;  box-shadow: 0 0 22px rgba(255,215,0,1); }
+      100% { opacity: .7; box-shadow: 0 0 10px rgba(255,215,0,.5); }
     }
 
+    /* grade padrão */
     .grid-produtos {
       @include u.container;
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
       gap: 28px;
       justify-items: center;
+    }
+  }
 
-      .produto {
-        background: rgba(255, 255, 255, 0.08);
-        border-radius: 12px;
-        padding: 18px;
-        width: 100%;
-        max-width: 240px;
-        box-shadow: 0 6px 14px rgba(0, 0, 0, 0.3);
-        transition: transform 0.25s ease, background 0.25s ease;
+  /* ====== CARD PADRÃO (TODOS os produtos) ====== */
+  .produto {
+    position: relative;
+    width: 100%;
+    max-width: 280px;
+    border-radius: 16px;
+    padding: 18px;
 
-        &:hover {
-          transform: translateY(-6px);
-          background: rgba(255, 255, 255, 0.15);
-        }
+    /* fundo marrom-dourado translúcido como no print */
+    background: rgba(125, 91, 44, .85);
+    box-shadow:
+      0 10px 22px rgba(0,0,0,.35),
+      inset 0 1px 0 rgba(255,255,255,.05);
+    transition: transform .25s ease, box-shadow .25s ease, background .25s ease;
 
-        img {
-          width: 100%;
-          aspect-ratio: 1 / 1;
-          object-fit: cover;
-          border-radius: 10px;
-          margin-bottom: 10px;
-          display: block;
-        }
+    &:hover {
+      transform: translateY(-6px);
+      box-shadow:
+        0 16px 30px rgba(0,0,0,.45),
+        0 0 0 2px rgba(255,215,0,.18);
+      background: rgba(125, 91, 44, .9);
+    }
 
-        h4 {
-          color: #fff;
-          font-size: 1rem;
-          font-weight: 600;
-          margin-bottom: 5px;
-        }
+    /* badge de categoria */
+    .badge {
+      position: absolute;
+      top: 10px; left: 10px;
+      padding: 6px 10px;
+      background: #ffd700;
+      color: #000;
+      border-radius: 999px;
+      font-weight: 800;
+      font-size: .85rem;
+      box-shadow: 0 3px 8px rgba(0,0,0,.25);
+    }
 
-        p {
-          color: #ffb347;
-          font-weight: 700;
-          font-size: 0.95rem;
-        }
+    img {
+      width: 100%;
+      aspect-ratio: 1 / 1;
+      object-fit: cover;
+      border-radius: 12px;
+      display: block;
+      margin-bottom: 12px;
+      box-shadow: 0 4px 10px rgba(0,0,0,.25);
+    }
+
+    h4 {
+      color: #fff;
+      font-weight: 700;
+      font-size: 1.05rem;
+      margin-bottom: 6px;
+      text-shadow: 0 1px 0 rgba(0,0,0,.3);
+    }
+
+    /* >>> preço EM PRETO em todos os lugares (produtos + ofertas) <<< */
+    p,
+    .price,
+    .price .new {
+      color: #000 !important;
+    }
+
+    /* preço antigo riscado (quando houver) */
+    .price {
+      display: inline-flex;
+      align-items: baseline;
+      gap: .55rem;
+      font-weight: 800;
+
+      .old {
+        opacity: .6;
+        text-decoration: line-through;
+        text-decoration-thickness: 2px;
+        text-decoration-color: rgba(0,0,0,.45);
       }
     }
   }
 
-  /* ===== RESPONSIVO ===== */
-  @media (max-width: 1024px) {
-    h2 {
-      font-size: 1.8rem;
-    }
+  /* utilitário: força 4 colunas no desktop quando quiser */
+  .grid-4 {
+    grid-template-columns: repeat(4, minmax(240px, 1fr)) !important;
+  }
+} /* <-- fecha .produtos corretamente */
 
-    .grid-produtos {
-      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+/* ===================== OFERTAS ESPECIAIS (seção independente) ===================== */
+.ofertas-especiais {
+  position: relative;
+  z-index: 1;                    /* acima de overlays do hero */
+  padding: v.$sectionY 0;
+  background: transparent;
+  text-align: center;
+  scroll-margin-top: 150px;      /* header fixo não cobre ao clicar no menu */
+
+  .heading { @include u.container; }
+
+  .section-title {
+    font-family: 'Caprasimo', cursive;
+    font-size: clamp(1.6rem, 1rem + 1.6vw, 2rem);
+    color: #000;
+    text-transform: uppercase;
+    letter-spacing: .6px;
+    margin-bottom: 8px;
+
+    &::after {
+      content: '';
+      display: block;
+      width: 140px; height: 4px;
+      margin: 10px auto 0;
+      background: #ffd700;
+      border-radius: 2px;
+      box-shadow: 0 0 10px rgba(255,215,0,.7);
     }
   }
 
-  @media (max-width: 640px) {
-    .grid-produtos {
-      grid-template-columns: 1fr;
-      gap: 24px;
-    }
+  .section-sub {
+    color: #fff;
+    margin-bottom: 22px;
+  }
 
-    .produto {
-      max-width: 90%;
-    }
+  /* grade igual aos produtos */
+  .grid-produtos {
+    @include u.container;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+    gap: 28px;
+    justify-items: center;
+  }
+
+  /* os cards já herdaram o estilo de .produto
+     — só reforço a imagem para evitar estouro */
+  .produto img {
+    width: 100%;
+    aspect-ratio: 1 / 1;
+    object-fit: cover;
+    border-radius: 12px;
+    display: block;
   }
 }
+
+/* ===================== Âncoras: compensam header fixo ===================== */
+#produtos, #sobre, #contato, #ofertas { scroll-margin-top: 150px; }

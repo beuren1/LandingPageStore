@@ -1,44 +1,129 @@
 @use './components/variables' as v;
 
+/* ====== HERO (banner rotativo) ====== */
 .hero {
-  background: url("https://images.unsplash.com/photo-1521335629791-ce4aec67dd47")
-            center/cover no-repeat;
-  color: v.$lightText;
-  min-height: 78vh;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  text-align: center;
   position: relative;
+  min-height: 90vh;              /* altura do banner */
+  display: grid;
+  place-items: center;
+  overflow: hidden;
+  color: v.$lightText;
 
-  &:before {
-    content: '';
+  /* camada escura para contraste do texto */
+  &::before {
+    content: "";
     position: absolute;
     inset: 0;
-    background: linear-gradient(180deg, rgba(0,0,0,.35), rgba(0,0,0,.55));
+    background: linear-gradient(180deg, rgba(0,0,0,.45), rgba(0,0,0,.65));
+    z-index: 1;
+    pointer-events: none;
   }
+}
+
+/* container dos slides (preenchendo todo o fundo) */
+.hero-slides {
+  position: absolute;
+  inset: 0;
+  z-index: 0; /* atrás do conteúdo */
+}
+
+/* cada slide é uma camada com bg-cover ocupando tudo */
+.slide {
+  position: absolute;
+  inset: 0;
+  background: center/cover no-repeat;
+
+  opacity: 0;
+  transition: opacity .6s ease; /* transição suave */
+  will-change: opacity;
+}
+
+/* slide visível */
+.slide.is-active { opacity: 1; }
+
+/* conteúdo por cima */
+.hero-content {
+  position: relative;
+  z-index: 2;
+  background: rgba(0,0,0,.42);
+  backdrop-filter: blur(2px);
+  padding: 40px 28px;
+  border-radius: v.$radius;
+  text-align: center;
+
+  .tag-title { color: #fff; font-size: clamp(1.8rem, 2.2vw + 1rem, 2.6rem); }
+  p { color: #fff; opacity: .95; margin-top: 6px; font-size: 1.1rem; }
+
+  #btn-comprar { margin-top: 10px; } /* usa .btn-primary preta */
+}
+
+/* ====== Controles (setas + pontinhos) ====== */
+.hero-controls {
+  position: absolute;
+  inset-inline: 0;
+  bottom: 22px;
+  z-index: 3;
+  display: grid;
+  grid-template-columns: 48px 1fr 48px;
+  align-items: center;
+  gap: 10px;
+  padding-inline: 12px;
+}
+
+.hero-dots {
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+}
+
+.hero-dot {
+  width: 10px;
+  height: 10px;
+  border-radius: 999px;
+  border: 0;
+  background: rgba(255,255,255,.45);
+  cursor: pointer;
+  transition: transform .2s ease, background .2s ease;
+}
+.hero-dot.is-active { background: #fff; transform: scale(1.2); }
+.hero-dot:focus { outline: 2px solid #fff; outline-offset: 2px; }
+
+.hero-arrow {
+  width: 42px;
+  height: 42px;
+  border-radius: 999px;
+  border: 0;
+  background: rgba(0,0,0,.45);
+  color: #fff;
+  font-size: 26px;
+  line-height: 1;
+  display: grid;
+  place-items: center;
+  cursor: pointer;
+  transition: transform .15s ease, background .15s ease;
+  backdrop-filter: blur(2px);
+}
+.hero-arrow:hover { background: rgba(0,0,0,.65); transform: translateY(-1px); }
+.hero-arrow:focus { outline: 2px solid #fff; }
+.hero-arrow--prev { justify-self: start; }
+.hero-arrow--next { justify-self: end; }
+
+/* ====== Responsivo ====== */
+@media (max-width: 768px) {
+  .hero { min-height: 70vh; }
 
   .hero-content {
-    position: relative;
-    z-index: 1;
-    background: rgba(0,0,0,.45);
-    padding: 36px 28px;
-    border-radius: v.$radius;
-
-    h2 { font-size: 2.2rem; margin-bottom: 8px; }
-    p  { opacity: .95; }
-
-    #btn-comprar {
-      margin-top: 16px;
-      background: v.$primary;
-      color: v.$lightText;
-      border: none;
-      padding: 10px 22px;
-      border-radius: v.$radius;
-      cursor: pointer;
-      transition: .25s ease;
-
-      &:hover { background: v.$primaryHover; transform: translateY(-1px); }
-    }
+    padding: 28px 20px;
+    .tag-title { font-size: 1.9rem; }
+    p { font-size: 1rem; }
   }
+
+  .hero-controls { bottom: 14px; }
+  .hero-arrow { width: 38px; height: 38px; font-size: 22px; }
+  .hero-dot { width: 9px; height: 9px; }
+}
+
+/* acessibilidade: menos animação para quem prefere */
+@media (prefers-reduced-motion: reduce) {
+  .slide { transition: none; }
 }

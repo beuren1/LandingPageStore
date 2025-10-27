@@ -1,9 +1,18 @@
-@use './variables' as v;
-
 .footer {
+  width: 100%;
   background: #111;
-  color: v.$lightText;
+  color: #fff;
   text-align: center;
-  padding: 20px 0;
-  font-size: .95rem;
+  padding: 20px 10px;
+  margin-top: 40px;
+  position: relative;
+  z-index: 2;
+
+  .footer-inner {
+    max-width: 1120px;
+    margin: 0 auto;
+    padding: 0 16px;
+  }
+
+  p { margin: 0; font-size: 0.95rem; font-weight: 500; }
 }

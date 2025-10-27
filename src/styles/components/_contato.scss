@@ -1,36 +1,221 @@
 @use './variables' as v;
 @use './utils' as u;
 
-.contato {
-  background: transparent;
-  padding: v.$sectionY 0;
-  text-align: center;
-  
-  form {
-    @include u.container;
-    max-width: 420px;
-    display: flex;
-    flex-direction: column;
-    gap: 14px;
+/* âncora ajustada */
+#contato {
+  scroll-margin-top: 150px;
+}
 
-    input, textarea {
-      border: 1px solid #ddd;
-      border-radius: v.$radius;
-      padding: 12px;
-      font-size: 1rem;
-      background: #fff;
+$accent: #000; /* botão agora preto */
+
+/* ===========================================
+   SEÇÃO CONTATO / FALE CONOSCO
+   =========================================== */
+.contato {
+  position: relative;
+  z-index: 1;
+  padding: v.$sectionY 0;
+  background: transparent;
+  overflow: hidden;
+
+  /* brilho suave atrás do título */
+  &::before {
+    content: '';
+    position: absolute;
+    top: -50px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 700px;
+    height: 700px;
+    background: radial-gradient(
+      circle at center,
+      rgba(255, 215, 0, 0.25) 0%,
+      rgba(255, 200, 0, 0.15) 40%,
+      rgba(0, 0, 0, 0) 80%
+    );
+    filter: blur(60px);
+    z-index: 0;
+    pointer-events: none;
+  }
+
+  .contact-wrap {
+    @include u.container;
+    position: relative;
+    z-index: 2;
+  }
+
+  /* ===== TÍTULO ===== */
+  .contact-title {
+    font-family: 'Caprasimo', cursive;
+    text-align: center;
+    font-size: clamp(2rem, 1.2rem + 2.6vw, 3rem);
+    margin-bottom: 40px;
+    color: #000;
+    position: relative;
+
+    &::after {
+      content: '';
+      display: block;
+      width: 160px;
+      height: 4px;
+      margin: 14px auto 0;
+      background: linear-gradient(90deg, #ffb347, #ffd700, #ffb347);
+      border-radius: 3px;
+      box-shadow: 0 0 10px rgba(255, 215, 0, 0.8);
     }
 
-    button {
-      background: v.$primary;
-      color: v.$lightText;
-      border: none;
-      padding: 12px;
-      border-radius: v.$radius;
-      cursor: pointer;
-      transition: .25s ease;
+    span {
+      color: #ffd700;
+      text-shadow: 0 0 10px rgba(255, 215, 0, 0.6);
+      animation: brilhoDourado 3s ease-in-out infinite;
+    }
+  }
 
-      &:hover { background: v.$primaryHover; }
+  @keyframes brilhoDourado {
+    0%, 100% { text-shadow: 0 0 10px rgba(255, 215, 0, 0.7); }
+    50% { text-shadow: 0 0 20px rgba(255, 215, 0, 1); }
+  }
+
+  /* ===== GRID PRINCIPAL ===== */
+  .contact-grid {
+    display: grid;
+    grid-template-columns: 1.1fr 0.9fr;
+    align-items: start;
+    gap: clamp(1rem, 2vw, 2rem);
+
+    @media (max-width: 900px) {
+      grid-template-columns: 1fr;
+      gap: 2rem;
+    }
+  }
+
+  /* ===== FORMULÁRIO ===== */
+  .contact-form {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 18px;
+
+    label {
+      display: grid;
+      gap: 8px;
+
+      span {
+        font-weight: 800;
+        color: #000;
+        font-size: 1.05rem;
+      }
+    }
+
+    input,
+    textarea {
+      width: 100%;
+      border: 1px solid rgba(0, 0, 0, 0.25);
+      border-radius: 12px;
+      padding: 14px 16px;
+      font-size: 1rem;
+      background: #fff;
+      color: #000;
+      outline: none;
+      box-shadow: 0 1px 2px rgba(0, 0, 0, 0.05);
+      transition: box-shadow 0.2s ease, border-color 0.2s ease, transform 0.2s ease;
+
+      &::placeholder {
+        color: rgba(0, 0, 0, 0.45);
+      }
+
+      &:focus {
+        border-color: rgba(255, 215, 0, 0.8);
+        box-shadow: 0 0 8px rgba(255, 215, 0, 0.3);
+        transform: translateY(-1px);
+      }
+    }
+
+    textarea {
+      min-height: 160px;
+      resize: vertical;
+    }
+
+    .contact-btn {
+      min-width: 180px;
+      justify-self: start;
+      background: $accent; /* agora preto */
+      color: #fff;
+      border-radius: 12px;
+      padding: 14px 28px;
+      font-weight: 900;
+      letter-spacing: 0.3px;
+      box-shadow: 0 6px 14px rgba(0, 0, 0, 0.35);
+      border: none;
+      transition: all 0.2s ease;
+
+      &:hover {
+        background: #ffd700;
+        color: #000;
+        transform: translateY(-1px);
+        box-shadow: 0 6px 14px rgba(255, 215, 0, 0.4);
+      }
+
+      &:active {
+        transform: translateY(0);
+      }
+    }
+  }
+
+  /* ===== LADO DIREITO ===== */
+  .contact-side {
+    align-self: center;
+    padding-top: 10px;
+
+    .side-block + .side-block {
+      margin-top: 28px;
+    }
+
+    h3 {
+      font-family: 'Caprasimo', cursive;
+      font-size: clamp(1.2rem, 0.9rem + 1vw, 1.6rem);
+      color: #000;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      margin-bottom: 12px;
+
+      i {
+        color: #000;
+      }
+    }
+
+    .social-icons {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+      margin-bottom: 20px;
+
+      a {
+        width: 40px;
+        height: 40px;
+        border-radius: 10px;
+        display: grid;
+        place-items: center;
+        border: 2px solid #000;
+        color: #000;
+        transition: transform 0.2s ease, background 0.2s ease, color 0.2s ease;
+
+        &:hover {
+          transform: translateY(-2px);
+          background: #000;
+          color: #fff;
+        }
+
+        i {
+          font-size: 1.2rem;
+        }
+      }
+    }
+
+    .address {
+      color: #000;
+      font-weight: 700;
+      line-height: 1.5;
     }
   }
 }

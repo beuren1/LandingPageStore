@@ -17,6 +17,7 @@
 
   .sobre-img {
     flex: 1 1 300px;
+
     img {
       width: 100%;
       max-width: 400px;
@@ -27,45 +28,33 @@
 
   .sobre-texto {
     flex: 1 1 400px;
-    color: #fff;
 
-   h2 {
-  text-align: center;
-  font-size: 2rem;
-  margin-bottom: 25px;
-  color: #fff;
-  text-transform: uppercase;
-  letter-spacing: 1px;
-}
-
+    h2 {
+      font-family: 'Caprasimo', cursive;
+      text-align: center;
+      font-size: 2.2rem;
+      margin-bottom: 25px;
+      color: #000;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+    }
 
     p {
       margin-bottom: 15px;
       line-height: 1.7;
       font-size: 1.05rem;
-      color: #f5f5f5;
-    }
-
-    strong {
       color: #fff;
     }
+
+    strong { color: #fff; }
   }
 
-  /* ==== Responsivo ==== */
   @media (max-width: 768px) {
     .sobre-container {
       flex-direction: column;
       text-align: center;
     }
-
-    .sobre-texto {
-      h2 {
-        margin-top: 25px;
-      }
-    }
-
-    .sobre-img img {
-      max-width: 90%;
-    }
+    .sobre-texto h2 { margin-top: 25px; }
+    .sobre-img img { max-width: 90%; }
   }
 }
