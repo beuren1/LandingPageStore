@@ -1,0 +1,108 @@
+
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>Finalizar pedido - Beuren Store</title>
+
+  <link
+    href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap"
+    rel="stylesheet"
+  >
+
+  <link rel="stylesheet" href="./styles/main.scss">
+</head>
+
+<body>
+  <main class="pagina-checkout">
+    <div class="checkout-container">
+      <a href="./carrinho.html" class="checkout-voltar">
+        ← Voltar ao carrinho
+      </a>
+
+      <h1>Finalizar pedido</h1>
+      <p class="checkout-subtitulo">
+        Informe seu endereço de entrega.
+      </p>
+
+      <div class="checkout-layout">
+
+        <section class="checkout-card">
+          <h2>Endereço de entrega</h2>
+
+          <form id="form-checkout">
+            <label for="recipient_name">Nome do destinatário</label>
+            <input id="recipient_name" required maxlength="150"
+                   autocomplete="name">
+
+            <label for="zip_code">CEP</label>
+            <input id="zip_code" required maxlength="9"
+                   inputmode="numeric" placeholder="00000-000">
+
+            <label for="street">Rua / Avenida</label>
+            <input id="street" required maxlength="200"
+                   autocomplete="address-line1">
+
+            <div class="checkout-duas-colunas">
+              <div>
+                <label for="number">Número</label>
+                <input id="number" required maxlength="20">
+              </div>
+              <div>
+                <label for="complement">Complemento</label>
+                <input id="complement" maxlength="150">
+              </div>
+            </div>
+
+            <label for="neighborhood">Bairro</label>
+            <input id="neighborhood" required maxlength="100">
+
+            <div class="checkout-duas-colunas">
+              <div>
+                <label for="city">Cidade</label>
+                <input id="city" required maxlength="100"
+                       autocomplete="address-level2">
+              </div>
+              <div>
+                <label for="state">UF</label>
+                <input id="state" required maxlength="2"
+                       placeholder="MG" autocomplete="address-level1">
+              </div>
+            </div>
+
+            <p id="mensagem-checkout" role="status"
+               aria-live="polite"></p>
+
+            <button type="submit" id="btn-confirmar-pedido">
+              Confirmar pedido de teste
+            </button>
+          </form>
+        </section>
+
+        <aside class="checkout-card checkout-resumo">
+          <h2>Resumo do pedido</h2>
+
+          <div id="checkout-itens">
+            Carregando produtos...
+          </div>
+
+          <div class="checkout-total">
+            <span>Total dos produtos</span>
+            <strong id="checkout-total">R$ 0,00</strong>
+          </div>
+
+          <p class="checkout-aviso">
+            Pedido demonstrativo, sem pagamento e sem
+            cálculo de frete.
+          </p>
+        </aside>
+
+      </div>
+    </div>
+  </main>
+
+  <script type="module" src="./scripts/checkout.js"></script>
+</body>
+</html>

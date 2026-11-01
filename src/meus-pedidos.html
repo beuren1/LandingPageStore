@@ -1,0 +1,47 @@
+
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>Meus Pedidos - Beuren Store</title>
+
+  <link
+    href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap"
+    rel="stylesheet"
+  >
+
+  <link rel="stylesheet" href="./styles/main.scss">
+</head>
+
+<body>
+  <main class="pagina-pedidos">
+    <div class="pedidos-container">
+
+      <nav class="pedidos-navegacao">
+        <a href="./index.html">← Voltar para a loja</a>
+        <a href="./carrinho.html">Meu carrinho</a>
+      </nav>
+
+      <header class="pedidos-cabecalho">
+        <h1>Meus Pedidos</h1>
+        <p>Acompanhe suas compras na Beuren Store.</p>
+      </header>
+
+      <div id="mensagem-pedidos" role="status" aria-live="polite">
+        Carregando seus pedidos...
+      </div>
+
+      <section
+        id="lista-pedidos"
+        class="lista-pedidos"
+        aria-label="Histórico de pedidos"
+      ></section>
+
+    </div>
+  </main>
+
+  <script type="module" src="./scripts/meus-pedidos.js"></script>
+</body>
+</html>

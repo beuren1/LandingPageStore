@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8" />
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <title>Carrinho - Beuren Store</title>
+
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap" rel="stylesheet" />
+
+    <link href="https://fonts.googleapis.com/css2?family=Caprasimo&display=swap" rel="stylesheet" />
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+
+    <link rel="stylesheet" href="./styles/main.scss" />
+</head>
+
+<body>
+
+    <!-- HEADER -->
+
+    <header class="site-header">
+
+        <div class="header__wrap">
+
+            <a href="./index.html" class="header__logo">
+                <img src="./images/logo.png" alt="Beuren Shop" />
+            </a>
+
+            <nav class="header__nav">
+
+                <ul class="nav__list">
+
+                    <li class="nav__item">
+                        <a class="nav__link" href="./index.html">
+                            Início
+                        </a>
+                    </li>
+
+                    <li class="nav__item">
+                        <a class="nav__link" href="./index.html#produtos">
+                            Produtos
+                        </a>
+                    </li>
+
+                    <li class="nav__item">
+                        <a class="nav__link" href="./index.html#ofertas">
+                            Ofertas
+                        </a>
+                    </li>
+
+                </ul>
+
+            </nav>
+
+        </div>
+
+    </header>
+
+
+
+    <!-- CARRINHO -->
+
+    <main class="pagina-carrinho">
+
+        <div class="container-carrinho">
+
+            <h1 class="titulo-carrinho">
+                Meu Carrinho
+            </h1>
+
+            <p class="subtitulo-carrinho">
+                Revise seus produtos antes de finalizar a compra.
+            </p>
+
+
+            <div class="carrinho-layout">
+
+                <!-- PRODUTOS -->
+
+                <section class="carrinho-produtos">
+
+                    <div id="lista-carrinho">
+                        <!-- JS coloca os produtos aqui -->
+                    </div>
+
+                </section>
+
+
+                <!-- RESUMO -->
+
+                <aside class="resumo-carrinho">
+
+                    <h2>
+                        Resumo do pedido
+                    </h2>
+
+
+                    <div class="linha-resumo">
+
+                        <span>
+                            Subtotal
+                        </span>
+
+                        <strong id="subtotal-carrinho">
+                            R$ 0,00
+                        </strong>
+
+                    </div>
+
+
+                    <div class="linha-resumo">
+
+                        <span>
+                            Frete
+                        </span>
+
+                        <strong>
+                            Grátis
+                        </strong>
+
+                    </div>
+
+
+                    <hr />
+
+
+                    <div class="linha-resumo total">
+
+                        <span>
+                            Total
+                        </span>
+
+                        <strong id="total-carrinho">
+                            R$ 0,00
+                        </strong>
+
+                    </div>
+
+
+                    <button id="finalizar-compra" class="btn-finalizar">
+
+                        Finalizar compra
+
+                    </button>
+
+
+                    <a href="./index.html#produtos" class="continuar-comprando">
+
+                        ← Continuar comprando
+
+                    </a>
+
+                </aside>
+
+            </div>
+
+        </div>
+
+    </main>
+
+
+    <script type="module" src="./scripts/carrinho.js"></script>
+
+</body>
+
+</html>

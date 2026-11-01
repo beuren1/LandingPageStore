@@ -1,0 +1,77 @@
+
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>Verificar e-mail - Beuren Store</title>
+
+  <link
+    href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap"
+    rel="stylesheet"
+  >
+
+  <link rel="stylesheet" href="./styles/main.scss">
+</head>
+
+<body>
+  <main class="pagina-cadastro">
+    <div class="cadastro-card verificacao-card">
+
+      <div class="verificacao-icone">✉️</div>
+
+      <h1>Verifique seu e-mail</h1>
+
+      <p>
+        Digite o código de 6 dígitos gerado para sua conta.
+      </p>
+
+      <p id="email-destino" class="email-destino"></p>
+
+      <form id="form-verificacao">
+        <label for="codigo">
+          Código de verificação
+        </label>
+
+        <input
+          type="text"
+          id="codigo"
+          name="codigo"
+          maxlength="6"
+          minlength="6"
+          inputmode="numeric"
+          pattern="[0-9]{6}"
+          autocomplete="one-time-code"
+          placeholder="000000"
+          required
+        >
+
+        <p
+          id="mensagem-verificacao"
+          role="status"
+          aria-live="polite"
+        ></p>
+
+        <button type="submit" id="btn-verificar">
+          Confirmar e-mail
+        </button>
+      </form>
+
+      <p class="verificacao-ajuda">
+        O código expira em 10 minutos.
+      </p>
+
+      <a href="./cadastro.html">
+        Voltar ao cadastro
+      </a>
+
+    </div>
+  </main>
+
+  <script
+    type="module"
+    src="./scripts/verificar-email.js"
+  ></script>
+</body>
+</html>

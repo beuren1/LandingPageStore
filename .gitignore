@@ -1,0 +1,27 @@
+# Node.js
+node_modules/
+.parcel-cache/
+dist/
+
+# Python
+__pycache__/
+*.pyc
+.venv/
+venv/
+.pytest_cache/
+
+# Django
+db.sqlite3
+*.sqlite3
+
+# Credenciais
+.env
+.env.*
+!.env.example
+
+# Repositorio antigo
+/LandingPageStore/
+
+# Temporarios
+.DS_Store
+Thumbs.db
