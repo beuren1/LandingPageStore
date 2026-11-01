@@ -7,7 +7,7 @@ const botao = document.getElementById("btn-confirmar-pedido");
 const lista = document.getElementById("checkout-itens");
 const totalElemento = document.getElementById("checkout-total");
 
-const API_CHECKOUT = "http://127.0.0.1:8000/api/orders/checkout/";
+const API_CHECKOUT = "https://beuren-store-api.onrender.com/api/orders/checkout/";
 
 let podeConfirmar = false;
 let enviando = false;
@@ -135,17 +135,17 @@ form.addEventListener("submit", async (event) => {
 
     podeConfirmar = false;
 
-mostrarMensagem(
-  `Pedido #${dados.id} registrado com sucesso!`
-);
+    mostrarMensagem(
+      `Pedido #${dados.id} registrado com sucesso!`
+    );
 
-lista.textContent = "Pedido registrado.";
-totalElemento.textContent = formatarPreco(dados.total);
-botao.textContent = "Pedido registrado";
-form.reset();
+    lista.textContent = "Pedido registrado.";
+    totalElemento.textContent = formatarPreco(dados.total);
+    botao.textContent = "Pedido registrado";
+    form.reset();
 
-// Redireciona para o histórico de pedidos.
-window.location.replace("./meus-pedidos.html");
+    // Redireciona para o histórico de pedidos.
+    window.location.replace("./meus-pedidos.html");
 
   } catch (erro) {
     console.error(erro);

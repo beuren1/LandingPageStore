@@ -37,7 +37,7 @@ if (form && mensagem && botao) {
 
         try {
             const resposta = await fetch(
-                "http://127.0.0.1:8000/api/accounts/register/",
+                "https://beuren-store-api.onrender.com/api/accounts/register/",
                 {
                     method: "POST",
                     headers: {

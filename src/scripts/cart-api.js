@@ -1,5 +1,5 @@
 
-const API_CART = "http://127.0.0.1:8000/api/cart/";
+const API_CART = "https://beuren-store-api.onrender.com/api/cart/";
 
 // ==========================================
 // AUTENTICACAO

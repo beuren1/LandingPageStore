@@ -2,7 +2,7 @@
 import { getToken } from "./cart-api.js";
 
 const API_PEDIDOS =
-  "http://127.0.0.1:8000/api/orders/my-orders/";
+  "https://beuren-store-api.onrender.com/api/orders/my-orders/";
 
 const lista = document.getElementById("lista-pedidos");
 const mensagem = document.getElementById("mensagem-pedidos");

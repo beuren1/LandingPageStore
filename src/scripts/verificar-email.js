@@ -43,7 +43,7 @@ form.addEventListener('submit', async (event) => {
 
     try {
         const resposta = await fetch(
-            'http://127.0.0.1:8000/api/accounts/verify-email/',
+            'https://beuren-store-api.onrender.com/api/accounts/verify-email/',
             {
                 method: 'POST',
                 headers: {

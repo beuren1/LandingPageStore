@@ -9,8 +9,8 @@ import {
 // CONFIGURACOES DA API
 // ==========================================
 
-const API_ACCOUNTS = "http://127.0.0.1:8000/api/accounts/";
-const API_PRODUCTS = "http://127.0.0.1:8000/api/products/";
+const API_ACCOUNTS = "https://beuren-store-api.onrender.com/api/accounts/";
+const API_PRODUCTS = "https://beuren-store-api.onrender.com/api/products/";
 
 // ==========================================
 // SCROLL SUAVE
