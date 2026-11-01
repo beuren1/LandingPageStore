@@ -4,7 +4,7 @@
   "description": "Landing page Beuren Store com Parcel + SCSS",
   "scripts": {
     "dev": "parcel \"src/*.html\" --port 1234",
-    "build": "parcel build src/index.html",
+    "build": "parcel build \"src/*.html\" --dist-dir dist --public-url /",
     "clean": "parcel clean",
     "test": "echo \"Error: no test specified\" && exit 1"
   },

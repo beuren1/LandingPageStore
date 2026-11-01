@@ -25,3 +25,6 @@ db.sqlite3
 # Temporarios
 .DS_Store
 Thumbs.db
+
+# Arquivos estaticos gerados pelo Django
+staticfiles/
